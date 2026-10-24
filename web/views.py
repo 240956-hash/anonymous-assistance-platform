@@ -14,3 +14,8 @@ def support(request):
 @require_GET
 def request_page(request):
     return render(request, "web/request.html")
+
+@never_cache
+@require_GET
+def specialist_placeholder(request):
+    return render(request, "web/specialist.html")

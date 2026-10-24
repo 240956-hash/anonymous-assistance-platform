@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Understand your support options</h1>
+<p class="lead">A proposed platform for legal and psychotherapeutic assistance
+for people affected by domestic violence.</p>
+<p>This early version demonstrates navigation and request validation.
+Requests are not sent to a specialist or saved.</p>
+<a class="button" href="{% url 'support' %}">Explore support options</a>
+<section aria-labelledby="privacy-heading">
+  <h2 id="privacy-heading">Privacy is part of the design</h2>
+  <p>The planned request process will not require a real name, phone number or
+  email. Data handling, specialist access and retention rules remain under
+  development. A website cannot guarantee privacy on a monitored device.</p>
+</section>
+{% endblock %}

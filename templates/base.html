@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Anonymous Assistance Platform{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="{% url 'home' %}">Anonymous Assistance Platform</a>
+    <nav aria-label="Main navigation">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'support' %}">Support options</a>
+    </nav>
+  </header>
+  <main id="main" class="container">
+    <p class="prototype-note">Student prototype. Not an operational support service.</p>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="container footer">Diploma project · Anonymous Assistance Platform</footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

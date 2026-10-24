@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Request prototype · AAP{% endblock %}
+{% block content %}
+<h1>Try the request form</h1>
+<p>Use fictional text only. This demonstration checks input but does not save
+or send a request. Do not enter names, contact details or personal histories.</p>
+<noscript><p>JavaScript is required for this demonstration. Nothing will be submitted.</p></noscript>
+<form id="request-form" class="panel" method="post" action="{% url 'request-prototype' %}" data-endpoint="{% url 'request-prototype' %}">
+  {% csrf_token %}
+  <label for="category">Type of assistance (required)</label>
+  <select id="category" name="category" required>
+    <option value="">Choose a category</option>
+    <option value="legal">Legal assistance</option>
+    <option value="psychotherapeutic">Psychotherapeutic assistance</option>
+  </select>
+  <label for="request-text">Fictional question (required)</label>
+  <textarea id="request-text" name="text" maxlength="5000" required
+    aria-describedby="text-hint text-error" autocomplete="off"></textarea>
+  <p id="text-hint" class="hint">Up to 5,000 characters. No real personal information.</p>
+  <p id="text-error" class="error"></p>
+  <button id="submit-button" type="submit" disabled>Check example input</button>
+  <p id="request-status" class="status" role="status" aria-live="polite"></p>
+</form>
+<p><a href="{% url 'support' %}">Back to support options</a></p>
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/request-form.js' %}" defer></script>{% endblock %}
